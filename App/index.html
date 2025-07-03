@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <title>Todo App</title>
+</head>
+
+<body>
+    <div id="background-gradient">
+        <div id="wrapper">
+            <h2 id="title">Todo List</h2>
+            <div id="todoWrapper">
+                <div id="todoEntryWrapper" class="section">
+                    <div id="name-input">
+                        <label><input type="text" placeholder="What needs to be done?"></label>
+                        <div id="mainTodoControls">
+                            <div class="todoControl shuffleBtn" onclick="entryController.shuffleEntries()">
+                                <img src="../Assets/shuffle.png" alt="">
+                            </div>
+                            <div class="todoControl clearBtn" onclick="listController.clearList()">
+                                <img src="../Assets/clear.png" alt="">
+                            </div>
+                            <div class="todoControl saveBtn" onclick="localStorage.setItem('savedTodoList', JSON.stringify(todoEntryData));">
+                                <img src="../Assets/save.png" alt="">
+                            </div>
+                            <div class="todoControl entryBtn" onclick="entryController.createEntryClick()">+</div>
+                        </div>
+                    </div>
+                    <div id="todoEntries"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script src="script.js"></script>
+</html>
