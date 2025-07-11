@@ -16,9 +16,9 @@ body {
     height: 100vh;
     width: 100vw;
     background: linear-gradient(180deg,
-        rgba(2, 0, 36, 1) 17%,
-        rgba(9, 9, 121, 1) 58%,
-        rgba(0, 212, 255, 1) 100%
+    rgba(2, 0, 36, 1) 17%,
+    rgba(9, 9, 121, 1) 58%,
+    rgba(0, 212, 255, 1) 100%
     );
     padding: 50px 150px;
     margin: 0;
@@ -27,31 +27,69 @@ body {
 
 
 #wrapper {
-    max-height: 100%;
-    width: 1040px;
+    width: 645px;
     margin: auto;
     position: relative;
     transition-duration: 1s;
 }
 
 
-@media screen and (max-width: 1700px) {
+@media screen and (max-width: 895px) {
     #wrapper {
-        width: 650px !important;
+        width: 595px !important;
     }
 }
 
-@media screen and (max-width: 700px) {
+
+@media screen and (max-width: 800px) {
     #wrapper {
         scale: 0.7;
-        transform: translateX(-20%);
+        transform-origin: 0 0;
     }
 }
 
+@media screen and (max-width: 500px) {
+    #wrapper {
+        position: absolute;
+        width: 100% !important;
+        scale: 1;
+    }
+
+    #background-gradient {
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    #title {
+        padding: 10px !important;
+    }
+
+    #name-input {
+        height: 110px !important;
+        display: flex;
+        flex-direction: column !important;
+        justify-content: space-between !important;
+    }
+
+    #name-input input {
+        width: 100% !important;
+    }
+
+    #mainTodoControls {
+        margin-top: 10px !important;
+    }
+}
+
+
 #title {
+    height: 100px;
+}
+
+
+#title h2 {
     text-align: left;
     color: white;
-    font-size: 35px;
+    font-size: 40px;
     font-family: sans-serif;
     font-weight: 100;
 }
@@ -63,9 +101,9 @@ body {
     margin: auto;
     animation: movingGradient 10s ease infinite;
     background: linear-gradient(-45deg,
-        rgba(153, 0, 255, 1) 0%,
-        rgba(9, 9, 121, 1) 50%,
-        rgba(0, 212, 255, 1) 100%
+    rgba(153, 0, 255, 1) 0%,
+    rgba(9, 9, 121, 1) 50%,
+    rgba(0, 212, 255, 1) 100%
     );
     background-size: 400% 400%;
     border-radius: 15px;
@@ -90,14 +128,170 @@ body {
 
 
 
-#todoEntryWrapper {
+#todoListSelection {
+    max-height: 600px;
+    width: 100%;
+    position: relative;
+    padding: 30px;
+    background-color: #000;
+}
+
+#todoListSelection > h2 {
+    color: #fff;
+    font-family: sans-serif;
+    font-weight: 100;
+    font-size: 35px;
+    padding-left: 20px;
+}
+
+
+.listBtn {
+    height: 50px;
+    width: 100%;
+    background-color: #000;
+    border-radius: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #fff;
+    text-align: left;
+    padding-left: 33px;
+    margin-top: 15px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+}
+
+
+.listBtn .listText {
     height: 100%;
+    width: 60%;
+    overflow: hidden;
+    padding: 4px;
+}
+
+
+.listBtn .listText > h2 {
+    font-family: sans-serif;
+    font-weight: 100;
+    font-size: 22px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    margin: 0;
+    padding-top: 8px;
+}
+
+
+.listBtn .listText > h2:focus {
+    outline: none;
+}
+
+
+.listBtn:hover {
+    .listControls {
+        display: flex;
+        animation: fade-in 0.3s;
+    }
+}
+
+
+.listControls {
+    display: none;
+    width: 140px;
+    height: 100%;
+    padding: 5px;
+    flex-direction: row;
+    justify-content: space-evenly;
+    transition-duration: 0.3s;
+}
+
+
+.listControlBtn {
+    height: 100%;
+    aspect-ratio: 1 / 1;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    font-family: sans-serif;
+    font-weight: 100;
+    color: #fff;
+    text-align: center;
+    cursor: pointer;
+}
+
+
+.list-delete {
+    background-color: rgb(154, 0, 0);
+}
+
+
+.list-rename {
+    padding-top: 8px;
+    font-size: 24px;
+    background-color: rgb(0, 104, 166);
+}
+
+
+.list-go {
+    background-color: rgb(111, 43, 217);
+    color: #fff;
+    text-align: center;
+    font-size: 30px;
+}
+
+.listControlBtn img {
+    height: 100%;
+    width: 100%;
+    filter: invert(1);
+}
+
+
+
+#todoListHolder, .createListHolder {
+    max-height: 100%;
+    width: 100%;
+    background: transparent;
+    padding: 20px;
+}
+
+
+#createList {
+    height: 50px;
+    width: 150px;
+    position: relative;
+    left: 0;
+    background-color: #000;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+#createListText {
+    font-family: sans-serif;
+    font-weight: 100;
+    font-size: 20px;
+    color: #fff;
+    float: left;
+    margin: 13px;
+}
+
+
+#createListPlusSign {
+    color: rgb(0, 255, 0);
+    position: relative;
+    float: right;
+    margin: 10px;
+}
+
+
+#todoEntryWrapper {
+    max-height: 1000px;
     width: 100%;
     background-color: #000;
     border-radius: 15px;
     padding: 15px;
     transition-duration: 0.5s;
     overflow: hidden;
+    display: none;
 }
 
 
@@ -148,7 +342,7 @@ body {
 
 
 #name-input input {
-    height: 100%;
+    height: 40px;
     width: 60%;
     float: left;
     background-color: rgba(20, 20, 20, 0.5);
@@ -156,6 +350,9 @@ body {
     border: 1px solid rgba(50, 50, 50, 0.5);
     padding-left: 20px;
     color: #fff;
+    overflow-Y: scroll;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 #name-input input:focus {
@@ -166,7 +363,7 @@ body {
 #mainTodoControls {
     float: right;
     position: relative;
-    height: 100%;
+    height: 40px;
     width: 190px;
     display: flex;
     flex-direction: row;
@@ -194,6 +391,11 @@ body {
     position: relative;
     filter: invert(1);
     margin: 8px auto;
+}
+
+
+.goBack {
+    padding-top: 5px;
 }
 
 
@@ -234,12 +436,14 @@ body {
 
 .todoInfo {
     height: 100%;
-    width: 64%;
+    width: 60%;
     float: left;
     background: transparent;
     position: relative;
     display: flex;
     flex-direction: row;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 
@@ -255,6 +459,9 @@ body {
     font-weight: 100;
     margin-left: 30px;
     padding-left: 40px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow-Y: scroll;
 }
 
 .todoText:focus {
@@ -277,6 +484,9 @@ body {
     float: right;
     display: none;
     padding-top: 18px;
+    position: absolute;
+    right: 0;
+    transform: translateX(0%);
 }
 
 .rearrangeContainer {
