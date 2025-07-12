@@ -225,6 +225,7 @@ function listControl() {
                 }
             }
 
+            console.log(isComplete);
             todoButton.textContent = isComplete ? "X" : "✓";
             switch_class();
         },
@@ -282,7 +283,7 @@ function entryControl() {
                                 <img src="../Assets/delete.png" alt="">
                             </div>
                             <div class="rename" onclick="bundle.entryController.renameEntry(${id})">R</div>
-                            <div class="${isTodoButtonCompleted} completeBtn" onclick="bundle.entryController.completeEntry(${id})">✓</div>
+                            <div class="${isTodoButtonCompleted} completeBtn" onclick="bundle.entryController.completeEntry(${id})">${complete ? 'X' : '✓'}</div>
                         </div>
                     </div>
                 </div>
