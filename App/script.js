@@ -225,7 +225,6 @@ function listControl() {
                 }
             }
 
-            console.log(isComplete);
             todoButton.textContent = isComplete ? "X" : "✓";
             switch_class();
         },
